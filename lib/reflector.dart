@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:reflectable/reflectable.dart';
 // ignore: implementation_imports
 import 'package:reflectable/src/reflectable_builder_based.dart';
+import 'package:reflector28/class_profiler.dart';
 import '/reflectable_object.dart';
 import 'reflectable.dart';
 
@@ -21,6 +22,7 @@ class Reflector {
       if (element.value is VariableMirrorImpl) {
         debugPrint(
             '${element.key}: ${_t1IstanceMirror.invokeGetter(element.key).toString()}');
+
         try {
           _t2IstanceMirror.invokeSetter(
               element.key, _t1IstanceMirror.invokeGetter(element.key));
@@ -30,9 +32,34 @@ class Reflector {
         } catch (e) {
           if (e is TypeError) {
             var _ndSide = _t2IstanceMirror.invokeGetter(element.key);
+            if (_t1IstanceMirror.invokeGetter(element.key) is List) {
+              var _firstList =
+                  _t1IstanceMirror.invokeGetter(element.key) as List;
 
-            _fillSameNameVariable(
-                _t1IstanceMirror.invokeGetter(element.key), _ndSide);
+              for (var i = 0; i < _firstList.length; i++) {
+                try {
+                  final _secClassName = ClassProfiler()
+                      .getPartner(_firstList[i].runtimeType.toString());
+
+                  final _secondClassMirror =
+                      (reflectable.reflectType(_secClassName) as ClassMirror);
+
+                  var newV = _secondClassMirror.newInstance('reflected', []);
+
+                  var _bal = _fillSameNameVariable(
+                    _firstList[i],
+                    newV,
+                  );
+
+                  (_ndSide as List).add(_bal);
+
+                  // ignore: empty_catches
+                } catch (e) {}
+              }
+            } else {
+              _fillSameNameVariable(
+                  _t1IstanceMirror.invokeGetter(element.key), _ndSide);
+            }
           } else {
             debugPrint(
                 '${element.key} could not be found in second class (t2)');

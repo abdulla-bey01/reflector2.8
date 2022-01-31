@@ -58,6 +58,8 @@ void main() {
         connection: ConnectionDto(),
         location: LocationDto(),
         intList: [],
+        listString: [],
+        vendors: [],
       ),
       parameters: [
         ReflectableParameter(keyT1: 'location1', keyT2: 'location'),
@@ -66,11 +68,27 @@ void main() {
     ),
   );
 
+  debugPrint('i reflected complex class (reversed)');
+
   final _serviceDtos = ServiceDto(
     connection: ConnectionDto(info: 'emailimmim@mam.ru'),
     location: LocationDto(id: 1, lat: 444.0, long: 55.0),
     intList: [3, 2, 1, 4, 5, 6, 7],
     listString: ['Abdullabayli', 'SALEH'],
+    vendors: [
+      VendorDto(
+        id: 222,
+        title: '111blaw3a',
+        connection: '333 33 44 ',
+        blablabla: 'asdfg',
+      ),
+      VendorDto(
+        id: 22,
+        title: 'bla555a',
+        connection: '333 33 44 ',
+        blablabla: 'lalalalal',
+      ),
+    ],
   );
 
   final _serviceModels = _reflector.fill(
@@ -79,6 +97,7 @@ void main() {
       t2: ServiceModel(
         connection: ConnectionModel(info: ''),
         location1: LocationModel(id: 0, lat: 0, long: 0),
+        vendors: [],
       ),
       parameters: [
         ReflectableParameter(keyT1: 'location', keyT2: 'location1'),
@@ -87,5 +106,5 @@ void main() {
     ),
   );
 
-  debugPrint('i reflected more complex class (reversed)');
+  debugPrint('i reflected complex class (reversed)');
 }

@@ -5,6 +5,10 @@ class MyReflectable extends Reflectable {
       : super(
           invokingCapability,
           declarationsCapability,
+          reflectedTypeCapability,
+          typeCapability,
+          newInstanceCapability,
+          typeCapability,
         );
 }
 

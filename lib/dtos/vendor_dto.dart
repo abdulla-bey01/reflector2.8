@@ -12,4 +12,5 @@ class VendorDto {
     this.connection = '',
     this.blablabla = '',
   });
+  VendorDto.reflected();
 }

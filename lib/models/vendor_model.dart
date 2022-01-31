@@ -12,4 +12,5 @@ class VendorModel {
     required this.title,
     required this.foo,
   });
+  VendorModel.reflected();
 }
