@@ -6,13 +6,13 @@ import '/reflectable_object.dart';
 import 'reflectable.dart';
 
 class Reflector {
-  Object fill({required ReflectableObject object}) {
+  Object? fill({required ReflectableObject object}) {
     var _t2 = _fillSameNameVariable(object.t1, object.t2);
     _t2 = _fillMembers(object: object);
     return _t2;
   }
 
-  Object _fillSameNameVariable(t1, t2) {
+  Object? _fillSameNameVariable(t1, t2) {
     InstanceMirror _t1IstanceMirror = reflectable.reflect(t1);
     //
     InstanceMirror _t2IstanceMirror = reflectable.reflect(t2);
@@ -44,7 +44,7 @@ class Reflector {
     return _t2IstanceMirror.reflectee!;
   }
 
-  Object _fillMembers({required ReflectableObject object}) {
+  Object? _fillMembers({required ReflectableObject object}) {
     InstanceMirror _t1IstanceMirror = reflectable.reflect(object.t1);
     //
     InstanceMirror _t2IstanceMirror = reflectable.reflect(object.t2);
