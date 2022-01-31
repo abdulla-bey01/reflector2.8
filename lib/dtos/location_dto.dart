@@ -5,5 +5,5 @@ class LocationDto {
   late int id;
   late double lat;
   late double long;
-  LocationDto({required this.id, required this.lat, required this.long});
+  LocationDto({this.id = 0, this.lat = 0.0, this.long = 0.0});
 }

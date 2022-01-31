@@ -4,12 +4,13 @@ import 'location_dto.dart';
 
 @reflectable
 class ServiceDto {
-  late ConnectionDto connection;
-  late LocationDto location;
+  late ConnectionDto? connection;
+  late LocationDto? location;
   late List<int> intList;
 
-  ServiceDto(
-      {required this.connection,
-      required this.location,
-      required this.intList});
+  ServiceDto({
+    this.connection,
+    this.location,
+    this.intList = const [],
+  });
 }

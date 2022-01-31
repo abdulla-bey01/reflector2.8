@@ -54,8 +54,8 @@ void main() {
     object: ReflectableObject(
       t1: _serviceModel,
       t2: ServiceDto(
-        connection: ConnectionDto(info: ''),
-        location: LocationDto(id: 0, lat: 0.0, long: 0.0),
+        connection: ConnectionDto(),
+        location: LocationDto(),
         intList: [],
       ),
       parameters: [
