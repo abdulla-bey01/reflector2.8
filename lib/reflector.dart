@@ -33,8 +33,6 @@ class Reflector {
 
             _fillSameNameVariable(
                 _t1IstanceMirror.invokeGetter(element.key), _ndSide);
-
-            debugPrint('a');
           } else {
             debugPrint(
                 '${element.key} could not be found in second class (t2)');
@@ -71,8 +69,6 @@ class Reflector {
           var _ndSide = _t2IstanceMirror.invokeGetter(parameter.keyT2!);
 
           _fillSameNameVariable(_stSide, _ndSide);
-
-          debugPrint('a');
         } else {
           debugPrint(
               '${_t1Variable.key} could not be found in second class (t2)');
