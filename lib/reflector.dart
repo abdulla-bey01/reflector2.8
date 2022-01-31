@@ -3,7 +3,6 @@ import 'package:reflectable/reflectable.dart';
 // ignore: implementation_imports
 import 'package:reflectable/src/reflectable_builder_based.dart';
 import '/reflectable_object.dart';
-import 'class_profiler.dart';
 import 'reflectable.dart';
 
 class Reflector {
