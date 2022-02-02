@@ -2,7 +2,7 @@
 
 
 ```console
-git clone https://github.com/abdulla-bey01/reflective_mapper
+gh repo clone abdulla-bey01/reflector2.8
 mv reflectable-flutter reflectable_flutter
 cd reflectable_flutter
 flutter doctor # just checking
